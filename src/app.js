@@ -4,10 +4,15 @@
 
 // There can only be one element, but it can have children so we enclose what we need in a div.  
 // The brackets are just for readability - conventional, but not mandatory
+var app = {
+    title: 'Indecision Application',
+    subtitle: 'Have a computer make decisions for you'
+}
+
 var template = (
     <div>
-        <h1>Indecision App</h1> 
-        <p>This is a paragraph</p>
+        <h1>{app.title}</h1> 
+        <p>{app.subtitle}</p>
     </div>
 );
 var user = {
@@ -16,11 +21,19 @@ var user = {
     location: 'England'
 }
 
+function getLocation(location){
+    if (location){
+        return location;
+    }
+        
+    return 'Unknown'
+}
+
 var template2 = (
     <div>
         <h1>{user.name.toUpperCase()}</h1> 
         <p>Age: {user.age}</p>
-        <p>Location: {user.location}</p>
+        <p>Location: {getLocation(user.location)}</p>
     </div>
 );
 
