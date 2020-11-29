@@ -10,13 +10,17 @@ var template = (
         <p>This is a paragraph</p>
     </div>
 );
-var userName = 'Gillian';
-var userAge = '55';
+var user = {
+    name: 'Gillian BC',
+    age: 55,
+    location: 'England'
+}
+
 var template2 = (
     <div>
-        <h1>{userName.toUpperCase()}</h1> 
-        <p>Age: {userAge}</p>
-        <p>Location: UK</p>
+        <h1>{user.name.toUpperCase()}</h1> 
+        <p>Age: {user.age}</p>
+        <p>Location: {user.location}</p>
     </div>
 );
 

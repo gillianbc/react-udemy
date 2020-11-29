@@ -19,26 +19,31 @@ var template = React.createElement(
         'This is a paragraph'
     )
 );
-var userName = 'Gillian';
-var userAge = '55';
+var user = {
+    name: 'Gillian BC',
+    age: 55,
+    location: 'England'
+};
+
 var template2 = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        userName.toUpperCase()
+        user.name.toUpperCase()
     ),
     React.createElement(
         'p',
         null,
         'Age: ',
-        userAge
+        user.age
     ),
     React.createElement(
         'p',
         null,
-        'Location: UK'
+        'Location: ',
+        user.location
     )
 );
 
