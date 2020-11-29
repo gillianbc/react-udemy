@@ -6,37 +6,39 @@
 // The brackets are just for readability - conventional, but not mandatory
 
 var template = React.createElement(
-    "div",
+    'div',
     null,
     React.createElement(
-        "h1",
+        'h1',
         null,
-        "Indecision App"
+        'Indecision App'
     ),
     React.createElement(
-        "p",
+        'p',
         null,
-        "This is a paragraph"
+        'This is a paragraph'
     )
 );
-
+var userName = 'Gillian';
+var userAge = '55';
 var template2 = React.createElement(
-    "div",
+    'div',
     null,
     React.createElement(
-        "h1",
+        'h1',
         null,
-        "Gillian Bladen-Clark"
+        userName.toUpperCase()
     ),
     React.createElement(
-        "p",
+        'p',
         null,
-        "Age: 55"
+        'Age: ',
+        userAge
     ),
     React.createElement(
-        "p",
+        'p',
         null,
-        "Location: UK"
+        'Location: UK'
     )
 );
 
