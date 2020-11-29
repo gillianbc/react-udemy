@@ -11,6 +11,14 @@ var template = (
     </div>
 );
 
+var template2 = (
+    <div>
+        <h1>Gillian Bladen-Clark</h1> 
+        <p>Age: 55</p>
+        <p>Location: UK</p>
+    </div>
+);
+
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(template2, appRoot);
