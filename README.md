@@ -2,12 +2,36 @@
 
 Learning react on udemy.  My second course from Andrew Mead.
 
+# Installation
+Assumes you have yarn installed globally
+
+`npm install -g yarn`
+
+'yarn --version'
+
+On windows, you will need to reboot.
+
+Install live-server:
+
+`yarn global add live-server`
+
+Install babel cli:
+
+`yarn global add babel-cli`
+
+Install babel react standard presets:
+
+`yarn add babel-preset-react@6.24.1 babel-preset-env@1.5.2`
+
+NB I prefer npm as that means I can easily run via intellij so I switched the above yarn to npm e.g. npm install -g
+
 # Running the App
 You need to run two processes so open two terminal windows:  
 - One to transpile the code and watch for changes to the source code
 - One to watch for changes to the transpiled code and serve it up to the browser
 
 The app will be launched on http://127.0.0.1:8080/ in your default browser.
+For some of the exrecises, just view the console logs in the Chrome dev tools F12
 
 ## Babel
 Transpiled with Babel into public/scripts/app.js using the env and react presets (i.e. collections of library files).
@@ -21,7 +45,6 @@ Globally installed.  Will serve up whatever is in public and reload it if it cha
 `live-server public`
 
 # Notes
-
 I use the ternary where I need two options, x ? a : b  which reads as "if some condition then a else b"
 but I didn't know about the logical and operator && for when I have one option or nothing
 x && a which reads as "if some condition then a"

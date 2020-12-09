@@ -5,12 +5,11 @@
   "repository": "https://github.com/gillianbc/react-udemy.git",
   "author": "gillianbc <gszemeti@gmail.com>",
   "license": "MIT",
-  
-    "scripts": {
-      "playground": "babel src/playground/es6-let-const.js --out-file=public/scripts/playground/es6-let-const.js --presets=env,react --watch"
-      
-    },
-  
+  "scripts": {
+    "start": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
+    "letconst": "babel src/playground/es6-let-const.js --out-file=public/scripts/playground/scrap.js --presets=env,react --watch",
+    "arrowfuncs": "babel src/playground/es6-arrow-function.js --out-file=public/scripts/playground/scrap.js --presets=env,react --watch"
+  },
   "dependencies": {
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1"
