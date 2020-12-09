@@ -5,6 +5,12 @@
   "repository": "https://github.com/gillianbc/react-udemy.git",
   "author": "gillianbc <gszemeti@gmail.com>",
   "license": "MIT",
+  
+    "scripts": {
+      "playground": "babel src/playground/es6-let-const.js --out-file=public/scripts/playground/es6-let-const.js --presets=env,react --watch"
+      
+    },
+  
   "dependencies": {
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1"
