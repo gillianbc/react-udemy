@@ -1,6 +1,8 @@
 # react-udemy
 
 Learning react on udemy.  My second course from Andrew Mead.
+https://www.udemy.com/course/react-2nd-edition.  Quite a long course - 39 hours so I estimate it will take me several months to complete it.
+
 
 # Installation
 Assumes you have yarn installed globally
@@ -26,13 +28,17 @@ Install babel react standard presets:
 NB I prefer npm as that means I can easily run via intellij so I switched the above yarn to npm e.g. npm install -g
 
 # Running the App
-You need to run two processes so open two terminal windows:  
+You need to run two processes so open two terminal windows if running from the shell:  
 - One to transpile the code and watch for changes to the source code
 - One to watch for changes to the transpiled code and serve it up to the browser
 
 The app will be launched on http://127.0.0.1:8080/ in your default browser.
 For some of the exrecises, just view the console logs in the Chrome dev tools F12
 
+## Update
+I've put the app scripts in package.json, so just start the live server in a terminal:
+`live-server public`
+and you can start the app scripts in the usual way
 ## Babel
 Transpiled with Babel into public/scripts/app.js using the env and react presets (i.e. collections of library files).
 --watch will re-transpile whenever the src file changes.
