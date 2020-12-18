@@ -2,12 +2,12 @@
 
 //JSX  Javascript XML - extends the JS language
 
-// There can only be one element, but it can have children so we enclose what we need in a div.  
+console.log('MAIN APP IS RUNNING');
+// There can only be one element in a template, but it can have children so we enclose what we need in a div.
 // The brackets are just for readability - conventional, but not mandatory
-
 var app = {
     title: 'Indecision Application',
-    subtitle: 'Have a computer make decisions for you',
+    subtitle: 'Have my computer make decisions for you',
     options: ['One', 'Two']
 };
 
@@ -30,42 +30,49 @@ var template = React.createElement(
         app.options.length > 0 ? 'Here are your options' : 'No options'
     )
 );
-var user = {
-    name: '',
-    age: 17,
-    location: 'England'
+
+var count = 10;
+var myId = "btn1";
+
+var addOne = function addOne() {
+    count++;
+    console.log('Added one', count);
+};
+var minusOne = function minusOne() {
+    count--;
+    console.log('Subtracted one', count);
 };
 
-function getLocation(location) {
-    if (location) {
-        return React.createElement(
-            'p',
-            null,
-            'Location: ',
-            location
-        );
-    }
+var reset = function reset() {
+    count = 0;
+    console.log('Reset', count);
+};
 
-    return 'Unknown';
-}
-
-var template2 = React.createElement(
+var templateTwo = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        user.name ? user.name.toUpperCase() : 'Anon'
+        'Count: ',
+        count
     ),
-    user.age > 18 && React.createElement(
-        'p',
-        null,
-        'Age: ',
-        user.age
+    React.createElement(
+        'button',
+        { id: myId, className: 'button', onClick: addOne },
+        'Option One'
     ),
-    getLocation(user.location)
-);
-
+    React.createElement(
+        'button',
+        { id: 'btn_one', className: 'button', onClick: minusOne },
+        'Option Two'
+    ),
+    React.createElement(
+        'button',
+        { id: 'reset', className: 'button', onClick: reset },
+        'Reset'
+    )
+);console.log(templateTwo);
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);

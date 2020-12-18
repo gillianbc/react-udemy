@@ -1,12 +1,12 @@
 "use strict";
 
 //JSX  Javascript XML - extends the JS language
-
-// There can only be one element, but it can have children so we enclose what we need in a div.  
+console.log('MAIN APP IS RUNNING')
+// There can only be one element in a template, but it can have children so we enclose what we need in a div.
 // The brackets are just for readability - conventional, but not mandatory
 const  app = {
     title: 'Indecision Application',
-    subtitle: 'Have a computer make decisions for you',
+    subtitle: 'Have my computer make decisions for you',
     options: ['One', 'Two']
 }
 
@@ -17,28 +17,32 @@ const template = (
         <h2>{app.options.length > 0 ? 'Here are your options' : 'No options'}</h2>
     </div>
 );
-const user = {
-    name: '',
-    age: 17,
-    location: 'England'
+
+let count = 10;
+const myId = "btn1"
+
+const addOne = () => {
+    count++;
+    console.log('Added one', count)
+}
+const minusOne = () => {
+    count--;
+    console.log('Subtracted one', count)
 }
 
-function getLocation(location){
-    if (location){
-        return <p>Location: {location}</p>
-    }
-        
-    return 'Unknown'
+const reset = () => {
+    count = 0;
+    console.log('Reset', count)
 }
 
-const template2 = (
+const templateTwo = (
     <div>
-        <h1>{user.name ? user.name.toUpperCase() : 'Anon'}</h1> 
-        {user.age > 18 && <p>Age: {user.age}</p>}
-        {getLocation(user.location)}
+        <h1>Count: {count}</h1>
+        <button id={myId} className="button" onClick={addOne}>Option One</button>
+        <button id="btn_one" className="button" onClick={minusOne}>Option Two</button>
+        <button id="reset" className="button" onClick={reset}>Reset</button>
     </div>
-);
-
+);console.log(templateTwo)
 const appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
