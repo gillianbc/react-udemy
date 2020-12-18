@@ -55,4 +55,7 @@ I use the ternary where I need two options, x ? a : b  which reads as "if some c
 but I didn't know about the logical and operator && for when I have one option or nothing
 x && a which reads as "if some condition then a"
 
+# Useful Docs
+Elements - https://reactjs.org/docs/dom-elements.html
+Events - https://reactjs.org/docs/events.html
 
