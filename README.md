@@ -51,9 +51,15 @@ Globally installed.  Will serve up whatever is in public and reload it if it cha
 `live-server public`
 
 # Notes
+## If / Then  (no Else)
 I use the ternary where I need two options, x ? a : b  which reads as "if some condition then a else b"
 but I didn't know about the logical and operator && for when I have one option or nothing
-x && a which reads as "if some condition then a"
+x && a which reads as "if some condition then a" e.g. `age > 0 && (adult = true)`
+
+## Double Logical Not !!
+For booleans we can use !! so that we can use a positive function name e.g. for a function called hasName() `return !!this.name`
+i.e. !this.name will return false when name and true when no name. Fine if the function is called hasNoName(). 
+But it's better to do !!this.name which will return true when name and false when no name 
 
 # Useful Docs
 Elements - https://reactjs.org/docs/dom-elements.html
