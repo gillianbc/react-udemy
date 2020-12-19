@@ -44,6 +44,12 @@ function displayOptionsArray() {
     };
 }
 
+var makeDecision = function makeDecision() {
+    var randomNum = Math.floor(Math.random() * app.options.length);
+    console.log('Random Num:', randomNum);
+    alert(app.options[randomNum]);
+};
+
 var render = function render() {
     var template = React.createElement(
         'div',
@@ -73,6 +79,11 @@ var render = function render() {
             'button',
             { onClick: removeAll },
             'Remove all'
+        ),
+        React.createElement(
+            'button',
+            { disabled: app.options.length === 0, onClick: makeDecision },
+            'Make decision'
         ),
         React.createElement(
             'ol',
