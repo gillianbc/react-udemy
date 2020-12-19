@@ -5,8 +5,6 @@ console.log('MAIN APP IS RUNNING')
 // There can only be one element in a template, but it can have children so we enclose what we need in a div.
 // The brackets are just for readability - conventional, but not mandatory
 
-
-
 const  app = {
     title: 'Indecision Application',
     subtitle: 'Have my computer make decisions for you',
@@ -34,6 +32,12 @@ const removeAll = () => {
 // index.html has a <div id="app"> </div> where we want our react code to appear
 const appRoot = document.getElementById('app');
 
+function displayOptionsArray() {
+    return (option) => {
+        return <li key={option}>Option: {option}</li>
+    };
+}
+
 const render = () => {
     const template = (
         <div>
@@ -42,6 +46,11 @@ const render = () => {
             <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
             <p>Number of options: {app.options.length}</p>
             <button onClick={removeAll}>Remove all</button>
+            {
+                <ol>
+                    {app.options.map(displayOptionsArray())}
+                </ol>
+            }
             <ol>
                 <li>One</li>
                 <li>Two</li>

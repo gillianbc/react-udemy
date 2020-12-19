@@ -6,7 +6,6 @@ console.log('MAIN APP IS RUNNING');
 // There can only be one element in a template, but it can have children so we enclose what we need in a div.
 // The brackets are just for readability - conventional, but not mandatory
 
-
 var app = {
     title: 'Indecision Application',
     subtitle: 'Have my computer make decisions for you',
@@ -33,6 +32,17 @@ var removeAll = function removeAll() {
 
 // index.html has a <div id="app"> </div> where we want our react code to appear
 var appRoot = document.getElementById('app');
+
+function displayOptionsArray() {
+    return function (option) {
+        return React.createElement(
+            'li',
+            { key: option },
+            'Option: ',
+            option
+        );
+    };
+}
 
 var render = function render() {
     var template = React.createElement(
@@ -63,6 +73,11 @@ var render = function render() {
             'button',
             { onClick: removeAll },
             'Remove all'
+        ),
+        React.createElement(
+            'ol',
+            null,
+            app.options.map(displayOptionsArray())
         ),
         React.createElement(
             'ol',
