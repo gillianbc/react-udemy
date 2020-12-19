@@ -38,6 +38,12 @@ function displayOptionsArray() {
     };
 }
 
+const makeDecision = () => {
+    const randomNum = Math.floor(Math.random() * app.options.length)
+    console.log('Random Num:', randomNum)
+    alert(app.options[randomNum])
+}
+
 const render = () => {
     const template = (
         <div>
@@ -46,6 +52,7 @@ const render = () => {
             <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
             <p>Number of options: {app.options.length}</p>
             <button onClick={removeAll}>Remove all</button>
+            <button disabled={app.options.length === 0} onClick={makeDecision}>Make decision</button>
             {
                 <ol>
                     {app.options.map(displayOptionsArray())}
