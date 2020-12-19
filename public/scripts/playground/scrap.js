@@ -1,48 +1,43 @@
-"use strict";
+'use strict';
 
-//JSX  Javascript XML - extends the JS language
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-console.log('MAIN APP IS RUNNING');
-// There can only be one element in a template, but it can have children so we enclose what we need in a div.
-// The brackets are just for readability - conventional, but not mandatory
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var app = {
-    title: 'Visibility Toggle'
+var Person = function () {
+    function Person() {
+        var age = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'unknown';
+        var name = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'Anon';
 
-    // index.html has a <div id="app"> </div> where we want our react code to appear
-};var appRoot = document.getElementById('app');
+        _classCallCheck(this, Person);
 
-var visible = false;
+        this.name = name;
+        this.age = age;
+    }
 
-var toggleDetails = function toggleDetails() {
-    visible ? visible = false : visible = true;
-    console.log('Visible ', visible);
-    render();
-};
+    _createClass(Person, [{
+        key: 'getGreeting',
+        value: function getGreeting() {
+            return 'Hi ' + this.name;
+        }
+    }, {
+        key: 'getDescription',
+        value: function getDescription() {
+            return this.name + ' is ' + this.age + ' year(s) old';
+        }
+    }]);
 
-var render = function render() {
-    var template = React.createElement(
-        'div',
-        null,
-        React.createElement(
-            'h1',
-            null,
-            app.title
-        ),
-        React.createElement(
-            'button',
-            { onClick: toggleDetails },
-            visible ? 'Hide details' : 'Show details'
-        ),
-        visible && React.createElement(
-            'p',
-            null,
-            "Here are the details"
-        )
-    );
+    return Person;
+}();
 
-    ReactDOM.render(template, appRoot);
-};
+var me = new Person('Gillian', 55);
+console.log(me);
 
-// Run the application
-render();
+var andrew = new Person();
+console.log(andrew);
+
+console.log(me.getGreeting());
+console.log(andrew.getGreeting());
+
+console.log(me.getDescription());
+console.log(andrew.getDescription());
