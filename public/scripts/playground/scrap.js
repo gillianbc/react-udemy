@@ -1,54 +1,48 @@
-'use strict';
+"use strict";
 
-// arguments object - no longer bound with arrow functions
+//JSX  Javascript XML - extends the JS language
 
-//ES5
-var add = function add(a, b) {
-    console.log(arguments);
-    return a + b;
-};
-console.log(add(55, 1));
-console.log(add(55, 1, 12));
+console.log('MAIN APP IS RUNNING');
+// There can only be one element in a template, but it can have children so we enclose what we need in a div.
+// The brackets are just for readability - conventional, but not mandatory
 
-//ES6
-var add2 = function add2(a, b) {
-    // console.log(arguments);  // would cause 'Reference error: arguments is not defined'
-    return a + b;
-};
-// So if you need to use arguments, use an ES5 function rather than an ES6 arrow function.  This is legit.
+var app = {
+    title: 'Visibility Toggle'
 
+    // index.html has a <div id="app"> </div> where we want our react code to appear
+};var appRoot = document.getElementById('app');
 
-// this keyword - no longer bound with arrow functions
-var user = {
-    name: 'Amanda',
-    cities: ['Sheffield', 'York'],
-    printPlacesLived: function printPlacesLived() {
-        console.log('Name:' + this.name); // this.name is in scope
-        console.log('Cities lived: ' + this.cities);
+var visible = false;
 
-        this.cities.forEach(function (city) {
-            // this.name will cause an error as we are within an anonymous function so name is not in scope
-            // console.log(this.name + ' has lived in ' + city)
-        });
-    }
+var toggleDetails = function toggleDetails() {
+    visible ? visible = false : visible = true;
+    console.log('Visible ', visible);
+    render();
 };
 
-console.log(user.printPlacesLived());
+var render = function render() {
+    var template = React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'h1',
+            null,
+            app.title
+        ),
+        React.createElement(
+            'button',
+            { onClick: toggleDetails },
+            visible ? 'Hide details' : 'Show details'
+        ),
+        visible && React.createElement(
+            'p',
+            null,
+            "Here are the details"
+        )
+    );
 
-// With arrow functions, we don't have the same problem
-var person = {
-    name: 'Frances',
-    cities: ['Paris', 'Scunthorpe'],
-    printPlacesLived: function printPlacesLived() {
-        var _this = this;
-
-        console.log('Name:' + this.name); // this.name is in scope
-        console.log('Cities lived: ' + this.cities);
-
-        this.cities.forEach(function (city) {
-            console.log(_this.name + ' has also lived in ' + city);
-        });
-    }
+    ReactDOM.render(template, appRoot);
 };
 
-console.log(person.printPlacesLived());
+// Run the application
+render();
