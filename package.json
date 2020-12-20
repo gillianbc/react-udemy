@@ -7,11 +7,11 @@
   "license": "MIT",
   "scripts": {
     "start": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
-    "es6-classes1": "babel src/playground/es6-classes1.js --out-file=public/scripts/playground/scrap.js --presets=env,react --watch",
-    "builditvisibility": "babel src/playground/build-it-visible.js --out-file=public/scripts/playground/scrap.js --presets=env,react --watch",
-    "letconst": "babel src/playground/es6-let-const.js --out-file=public/scripts/playground/scrap.js --presets=env,react --watch",
-    "arrowfuncs": "babel src/playground/es6-arrow-function.js --out-file=public/scripts/playground/scrap.js --presets=env,react --watch",
-    "arrowfuncs2": "babel src/playground/es6-arrow-function2.js --out-file=public/scripts/playground/scrap.js --presets=env,react --watch"
+    "es6-classes1": "babel src/playground/es6-classes1.js --out-file=public/scripts/playground/app.js --presets=env,react --watch",
+    "builditvisibility": "babel src/playground/build-it-visible.js --out-file=public/scripts/playground/app.js --presets=env,react --watch",
+    "letconst": "babel src/playground/es6-let-const.js --out-file=public/scripts/playground/app.js --presets=env,react --watch",
+    "arrowfuncs": "babel src/playground/es6-arrow-function.js --out-file=public/scripts/playground/app.js --presets=env,react --watch",
+    "arrowfuncs2": "babel src/playground/es6-arrow-function2.js --out-file=public/scripts/playground/app.js --presets=env,react --watch"
   },
   "dependencies": {
     "babel-preset-env": "1.5.2",
