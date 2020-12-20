@@ -1,22 +1,27 @@
 class IndecisionApp extends React.Component {
     render() {
+        const title = 'The Indecision Application'
+        const subtitle = 'Put your life in the hands of a computer.'
+        const options = ['apple', 'pear', 'banana']
         return (
             <div>
-                <Header/>
+                <Header title={title} subtitle={subtitle}/>
                 <Action/>
-                <Options/>
+                <Options options={options}/>
                 <AddOptions/>
             </div>
         )
     }
 }
 class Header extends React.Component{
+
     //we must provide a render() method when inheriting from React.Component
     render() {
         return (
+            /*Header has been called with 2 args, these become props*/
             <div>
-                <h1>Indecision</h1>
-                <h2>Put your life in the hands of a computer.</h2>
+                <h1>{this.props.title}</h1>
+                <h2>{this.props.subtitle}</h2>
             </div>
         )
 
@@ -32,13 +37,24 @@ class Action extends React.Component {
         )
     }
 }
-
+function displayOptionsArray() {
+    return (option) => {
+        return <li key={option}>Option: {option}</li>
+    };
+}
 class Options extends React.Component {
     render() {
         return (
             <div>
                 <p>The options component</p>
-                <Option/>
+                {
+                    /*To do a simple paragraph, we'd do this
+                    this.props.options.map((option) =>  <p key={option}>{option}</p>)
+                    */
+                    /*We still need to provide a key as it's an array*/
+                    this.props.options.map((option) =>  <Option key={option} optionText={option}/>)
+                }
+
             </div>
         )
     }
@@ -48,7 +64,7 @@ class Option extends React.Component {
     render() {
         return (
             <div>
-                <p>- The option component</p>
+                <h3>{this.props.optionText}</h3>
             </div>
         )
     }

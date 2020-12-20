@@ -20,12 +20,15 @@ var IndecisionApp = function (_React$Component) {
     _createClass(IndecisionApp, [{
         key: 'render',
         value: function render() {
+            var title = 'The Indecision Application';
+            var subtitle = 'Put your life in the hands of a computer.';
+            var options = ['apple', 'pear', 'banana'];
             return React.createElement(
                 'div',
                 null,
-                React.createElement(Header, null),
+                React.createElement(Header, { title: title, subtitle: subtitle }),
                 React.createElement(Action, null),
-                React.createElement(Options, null),
+                React.createElement(Options, { options: options }),
                 React.createElement(AddOptions, null)
             );
         }
@@ -46,20 +49,24 @@ var Header = function (_React$Component2) {
     _createClass(Header, [{
         key: 'render',
 
+
         //we must provide a render() method when inheriting from React.Component
         value: function render() {
-            return React.createElement(
-                'div',
-                null,
+            return (
+                /*Header has been called with 2 args, these become props*/
                 React.createElement(
-                    'h1',
+                    'div',
                     null,
-                    'Indecision'
-                ),
-                React.createElement(
-                    'h2',
-                    null,
-                    'Put your life in the hands of a computer.'
+                    React.createElement(
+                        'h1',
+                        null,
+                        this.props.title
+                    ),
+                    React.createElement(
+                        'h2',
+                        null,
+                        this.props.subtitle
+                    )
                 )
             );
         }
@@ -95,6 +102,17 @@ var Action = function (_React$Component3) {
     return Action;
 }(React.Component);
 
+function displayOptionsArray() {
+    return function (option) {
+        return React.createElement(
+            'li',
+            { key: option },
+            'Option: ',
+            option
+        );
+    };
+}
+
 var Options = function (_React$Component4) {
     _inherits(Options, _React$Component4);
 
@@ -115,7 +133,14 @@ var Options = function (_React$Component4) {
                     null,
                     'The options component'
                 ),
-                React.createElement(Option, null)
+
+                /*To do a simple paragraph, we'd do this
+                this.props.options.map((option) =>  <p key={option}>{option}</p>)
+                */
+                /*We still need to provide a key as it's an array*/
+                this.props.options.map(function (option) {
+                    return React.createElement(Option, { key: option, optionText: option });
+                })
             );
         }
     }]);
@@ -139,9 +164,9 @@ var Option = function (_React$Component5) {
                 'div',
                 null,
                 React.createElement(
-                    'p',
+                    'h3',
                     null,
-                    '- The option component'
+                    this.props.optionText
                 )
             );
         }
