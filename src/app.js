@@ -1,3 +1,15 @@
+class IndecisionApp extends React.Component {
+    render() {
+        return (
+            <div>
+                <Header/>
+                <Action/>
+                <Options/>
+                <AddOptions/>
+            </div>
+        )
+    }
+}
 class Header extends React.Component{
     //we must provide a render() method when inheriting from React.Component
     render() {
@@ -26,6 +38,17 @@ class Options extends React.Component {
         return (
             <div>
                 <p>The options component</p>
+                <Option/>
+            </div>
+        )
+    }
+}
+
+class Option extends React.Component {
+    render() {
+        return (
+            <div>
+                <p>- The option component</p>
             </div>
         )
     }
@@ -45,12 +68,9 @@ class AddOptions extends React.Component {
 const jsx = (
     <div>
         {/*All we need to provide is the name of the component*/}
-        <Header/>
-        <Action/>
-        <Options/>
-        <AddOptions/>
+
     </div>
 )
 
 // What we want to render and where do we want it displayed
- ReactDOM.render(jsx, document.getElementById('app'))
+ ReactDOM.render(<IndecisionApp/>, document.getElementById('app'))
