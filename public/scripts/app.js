@@ -85,6 +85,11 @@ var Action = function (_React$Component3) {
     }
 
     _createClass(Action, [{
+        key: 'handlePick',
+        value: function handlePick() {
+            console.log('handlePick was called');
+        }
+    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
@@ -92,7 +97,7 @@ var Action = function (_React$Component3) {
                 null,
                 React.createElement(
                     'button',
-                    null,
+                    { onClick: this.handlePick },
                     'What should I do?'
                 )
             );
@@ -123,6 +128,11 @@ var Options = function (_React$Component4) {
     }
 
     _createClass(Options, [{
+        key: 'handleRemove',
+        value: function handleRemove() {
+            console.log('handleRemove was called');
+        }
+    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
@@ -132,6 +142,11 @@ var Options = function (_React$Component4) {
                     'p',
                     null,
                     'The options component'
+                ),
+                React.createElement(
+                    'button',
+                    { onClick: this.handleRemove },
+                    'Remove all options?'
                 ),
 
                 /*To do a simple paragraph, we'd do this
@@ -185,15 +200,32 @@ var AddOptions = function (_React$Component6) {
     }
 
     _createClass(AddOptions, [{
+        key: 'onFormSubmit',
+        value: function onFormSubmit(e) {
+            console.log('Forms submitted');
+            console.log('---', e.target.elements.option.value, '---');
+            e.preventDefault(); // stop the whole form from refreshing
+            var newOption = e.target.elements.option.value.trim();
+            console.log('---', newOption, '---');
+            if (newOption) {
+                console.log('New option to add ', newOption);
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
                 'div',
                 null,
                 React.createElement(
-                    'p',
-                    null,
-                    'The addOptions component'
+                    'form',
+                    { onSubmit: this.onFormSubmit },
+                    React.createElement('input', { type: 'text', name: 'option' }),
+                    React.createElement(
+                        'button',
+                        null,
+                        'Add option'
+                    )
                 )
             );
         }
@@ -202,10 +234,7 @@ var AddOptions = function (_React$Component6) {
     return AddOptions;
 }(React.Component);
 
-//brackets are conventional but not required
-
-
-var jsx = React.createElement('div', null);
-
 // What we want to render and where do we want it displayed
+
+
 ReactDOM.render(React.createElement(IndecisionApp, null), document.getElementById('app'));
