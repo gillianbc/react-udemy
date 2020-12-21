@@ -27,12 +27,14 @@ class Header extends React.Component{
 
     }
 }
-
 class Action extends React.Component {
+    handlePick() {
+        console.log('handlePick was called')
+    }
     render() {
         return (
             <div>
-                <button>What should I do?</button>
+                <button onClick={this.handlePick}>What should I do?</button>
             </div>
         )
     }
@@ -43,10 +45,15 @@ function displayOptionsArray() {
     };
 }
 class Options extends React.Component {
+    handleRemove() {
+        console.log('handleRemove was called')
+
+    }
     render() {
         return (
             <div>
                 <p>The options component</p>
+                <button onClick={this.handleRemove}>Remove all options?</button>
                 {
                     /*To do a simple paragraph, we'd do this
                     this.props.options.map((option) =>  <p key={option}>{option}</p>)
@@ -54,7 +61,6 @@ class Options extends React.Component {
                     /*We still need to provide a key as it's an array*/
                     this.props.options.map((option) =>  <Option key={option} optionText={option}/>)
                 }
-
             </div>
         )
     }
@@ -71,22 +77,28 @@ class Option extends React.Component {
 }
 
 class AddOptions extends React.Component {
+    onFormSubmit(e) {
+        console.log('Forms submitted')
+        console.log('---',e.target.elements.option.value,'---')
+        e.preventDefault();  // stop the whole form from refreshing
+        const newOption = e.target.elements.option.value.trim();
+        console.log('---',newOption,'---')
+        if (newOption) {
+            console.log('New option to add ', newOption)
+        }
+    }
+
     render() {
         return (
             <div>
-                <p>The addOptions component</p>
+                <form onSubmit={this.onFormSubmit}>
+                    <input type="text" name="option"/>
+                    <button>Add option</button>
+                </form>
             </div>
         )
     }
 }
-
-//brackets are conventional but not required
-const jsx = (
-    <div>
-        {/*All we need to provide is the name of the component*/}
-
-    </div>
-)
 
 // What we want to render and where do we want it displayed
  ReactDOM.render(<IndecisionApp/>, document.getElementById('app'))
