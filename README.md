@@ -65,3 +65,7 @@ But it's better to do !!this.name which will return true when name and false whe
 Elements - https://reactjs.org/docs/dom-elements.html
 Events - https://reactjs.org/docs/events.html
 
+#Primer
+![Untitled](https://user-images.githubusercontent.com/20191662/102872117-33548800-4437-11eb-9caa-62b0367142d6.png)
+
+
