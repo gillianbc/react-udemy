@@ -50,6 +50,19 @@ Globally installed.  Will serve up whatever is in public and reload it if it cha
 
 `live-server public`
 
+# How Does It Work?
+We have a very simple `index.html` that has a `<div>` in the body with an id of `app`.  This is where our react application will be rendered.
+
+index.html uses two scripts for react:
+- react.development.js
+- react-dom.development.js
+plus our react application script - app.js
+
+Our app.js renders our main React component (IndecisionApp) which renders the other React components.
+A React component is simply a class that inherits from React.Component. Each React component has a render() method.
+
+`ReactDOM.render(<IndecisionApp/>, document.getElementById('app'))`
+
 # Notes
 ## If / Then  (no Else)
 I use the ternary where I need two options, x ? a : b  which reads as "if some condition then a else b"
