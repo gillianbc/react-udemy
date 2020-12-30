@@ -45,10 +45,14 @@ function displayOptionsArray() {
         return <li key={option}>Option: {option}</li>
     };
 }
+
 class Options extends React.Component {
     handleRemove() {
         console.log('handleRemove was called')
-
+        console.log(this.props.options)  // will not work.  We have constructed the Options instance with a property of
+        //options.  The property is accessible in render as it is simply a property of the Options instance on which
+        // render() has been called.  However, it's the onClick event of render() that is calling handleRemove() and 'this'
+        // is not bound.  See the binding-this.js for more examples.
     }
     render() {
         return (
