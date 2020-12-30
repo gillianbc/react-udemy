@@ -13,6 +13,7 @@ class IndecisionApp extends React.Component {
         )
     }
 }
+
 class Header extends React.Component{
 
     //we must provide a render() method when inheriting from React.Component
