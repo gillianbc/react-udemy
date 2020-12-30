@@ -12,7 +12,8 @@
     "letconst": "babel src/playground/es6-let-const.js --out-file=public/scripts/app.js --presets=env,react --watch",
     "arrowfuncs": "babel src/playground/es6-arrow-function.js --out-file=public/scripts/app.js --presets=env,react --watch",
     "arrowfuncs2": "babel src/playground/es6-arrow-function2.js --out-file=public/scripts/app.js --presets=env,react --watch",
-    "binding-this": "babel src/playground/binding-this.js --out-file=public/scripts/app.js --presets=env,react --watch"
+    "binding-this": "babel src/playground/binding-this.js --out-file=public/scripts/app.js --presets=env,react --watch",
+    "counter": "babel src/playground/counter.js --out-file=public/scripts/app.js --presets=env,react --watch"
   },
   "dependencies": {
     "babel-preset-env": "1.5.2",
