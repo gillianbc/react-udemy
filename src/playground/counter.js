@@ -27,11 +27,21 @@ class Counter extends React.Component {
         })
     }
     handleReset() {
-        this.setState(() => {
-            return {
-                count: 0
-            }
+        // this.setState(() => {
+        //     return {
+        //         count: 0
+        //     }
+        // })
+        // There is old style syntax that lets you just pass in an object
+        this.setState({
+            count: -1
         })
+        this.setState({
+            count: this.state.count + 1
+        })
+        // So you would expect the count to go to -1 and then 0, but it doesn't
+        // That's because setState() is async so the count in incremented before it's set to -1
+        // Always use a function for setting state - don't pass in an object as there is a risk of stale values
     }
     render() {
         return (
