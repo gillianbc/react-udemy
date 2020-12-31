@@ -68,56 +68,52 @@ class IndecisionApp extends React.Component {
     }
 }
 
-class Header extends React.Component{
-
-    //we must provide a render() method when inheriting from React.Component
-    render() {
-        return (
-            /*Header has been called with 2 args, these become props*/
-            <div>
-                <h1>{this.props.title}</h1>
-                <h2>{this.props.subtitle}</h2>
-            </div>
-        )
-
-    }
-}
-class Action extends React.Component {
-    render() {
-        return (
-            <div>
-                <button onClick={this.props.handleSelectedOption} disabled={!this.props.hasOptions}>What should I do?</button>
-            </div>
-        )
-    }
-}
-class Options extends React.Component {
-    render() {
-        return (
-            <div>
-                <p>The options component</p>
-                <button onClick={this.props.handleRemove}>Remove all options?</button>
-                {
-                    /*To do a simple paragraph, we'd do this
-                    this.props.options.map((option) =>  <p key={option}>{option}</p>)
-                    */
-                    /*We still need to provide a key as it's an array*/
-                    this.props.options.map((option) =>  <Option key={option} optionText={option}/>)
-                }
-            </div>
-        )
-    }
+// Stateless functional component
+const Header = (props) => {
+    return (
+        /*Header has been called with 2 args, these become props*/
+        <div>
+            <h1>{props.title}</h1>
+            <h2>{props.subtitle}</h2>
+        </div>
+    )
 }
 
-class Option extends React.Component {
-    render() {
-        return (
-            <div>
-                <h3>{this.props.optionText}</h3>
-            </div>
-        )
-    }
+// Stateless functional component
+const Action = (props) => {
+    return (
+        <div>
+            <button onClick={props.handleSelectedOption} disabled={!props.hasOptions}>What should I do?</button>
+        </div>
+    )
 }
+
+// Stateless functional component
+const Options = (props) => {
+    return (
+        <div>
+            <p>The available options are:</p>
+            {
+                /*To do a simple paragraph, we'd do this
+                this.props.options.map((option) =>  <p key={option}>{option}</p>)
+                */
+                /*We still need to provide a key as it's an array*/
+                props.options.map((option) =>  <Option key={option} optionText={option}/>)
+            }
+            <button onClick={props.handleRemove}>Remove all options?</button>
+        </div>
+    )
+}
+
+// Stateless functional component
+const Option = (props) => {
+    return (
+        <div>
+            <h3>{props.optionText}</h3>
+        </div>
+    )
+}
+
 
 class AddOptions extends React.Component {
     constructor(props) {
@@ -151,4 +147,5 @@ class AddOptions extends React.Component {
 }
 
 // What we want to render and where do we want it displayed
+// React identifies components as those that have an uppercase initial letter - lowercase it assumes are just html
  ReactDOM.render(<IndecisionApp/>, document.getElementById('app'))

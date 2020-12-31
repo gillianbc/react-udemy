@@ -80,7 +80,12 @@ But it's better to do !!this.name which will return true when name and false whe
 ## Props and State Compared
 ![image](https://user-images.githubusercontent.com/20191662/103426343-b2249000-4bb0-11eb-9e90-b4d368c52e7e.png)
 
-
+## Stateless Functional Components
+You don't need a subclass of React.Component if you're only doing some presentation stuff that doesn't depend on state.
+To convert an existing subclass of React.Component to a stateless functional component, 
+- use the same name as your class component
+- return the same stuff as the render() method
+- you cannot use `this.props` as we're not dealing with an instance of a class. Just use a normal argument: `props`. Look out for any `this.props.blahblah` and change to `props.blahblah`
 
 # Useful Docs
 Elements - https://reactjs.org/docs/dom-elements.html
