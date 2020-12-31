@@ -27,15 +27,15 @@ class IndecisionApp extends React.Component {
     // Do not add the same item twice or you'll get a key error
     handleAddOption(option) {
         console.log('Option: ', option)
+        if (!option) {
+            console.log('No option')
+            return 'No option'
+        }
+        if (this.state.options.includes(option)) {
+            console.log('Duplicate option')
+            return 'Duplicate option'
+        }
         this.setState((prevState) => {
-            if (!option) {
-                console.log('No option')
-                return 'No option'
-            }
-            if (prevState.options.includes(option)) {
-                console.log('Duplicate option')
-                return 'Duplicate option'
-            }
             return {
                 options: prevState.options.concat(option)
             }
@@ -140,7 +140,7 @@ class AddOptions extends React.Component {
         // buttons are submit buttons by default
         return (
             <div>
-                <div>{this.state.error && <p>this.state.error</p>}</div>
+                <div>{this.state.error && <p>{this.state.error}</p>}</div>
                 <form onSubmit={this.onFormSubmit}>
                     <input type="text" name="option"/>
                     <button>Add option</button>
