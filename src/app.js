@@ -2,10 +2,11 @@ class IndecisionApp extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            options: ['apple', 'pear', 'cherry']
+            options: ['Cheese']
         }
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this)
         this.handleSelectedOption = this.handleSelectedOption.bind(this)
+        this.handleAddOption = this.handleAddOption.bind(this)
     }
     handleDeleteOptions() {
         console.log('Setting options to empty')
@@ -20,6 +21,25 @@ class IndecisionApp extends React.Component {
         const randomNum = Math.floor(Math.random() * this.state.options.length)
         console.log('Random Num:', randomNum)
         alert(this.state.options[randomNum])
+    }
+
+    // Do not mutate the original arrays
+    // Do not add the same item twice or you'll get a key error
+    handleAddOption(option) {
+        console.log('Option: ', option)
+        if (!option) {
+            console.log('No option')
+            return 'No option'
+        }
+        if (this.state.options.includes(option)) {
+            console.log('Duplicate option')
+            return 'Duplicate option'
+        }
+        this.setState((prevState) => {
+            return {
+                options: prevState.options.concat(option)
+            }
+        })
     }
     render() {
         /* Note that this main component renders the Header, Action, Options and AddOptions components, but they cannot
@@ -40,7 +60,9 @@ class IndecisionApp extends React.Component {
                     options={this.state.options}
                     handleRemove={this.handleDeleteOptions}
                 />
-                <AddOptions/>
+                <AddOptions
+                    handleAddOption={this.handleAddOption}
+                />
             </div>
         )
     }
@@ -98,20 +120,27 @@ class Option extends React.Component {
 }
 
 class AddOptions extends React.Component {
+    constructor(props) {
+        super(props)
+        this.onFormSubmit = this.onFormSubmit.bind(this)
+        this.state = {
+            error: undefined
+        }
+    }
     onFormSubmit(e) {
         console.log('Forms submitted')
-        console.log('---',e.target.elements.option.value,'---')
         e.preventDefault();  // stop the whole form from refreshing
         const newOption = e.target.elements.option.value.trim();
-        console.log('---',newOption,'---')
-        if (newOption) {
-            console.log('New option to add ', newOption)
-        }
+        this.setState(() => {
+            return { error: this.props.handleAddOption(newOption) }
+        })
     }
 
     render() {
+        // buttons are submit buttons by default
         return (
             <div>
+                <div>{this.state.error && <p>{this.state.error}</p>}</div>
                 <form onSubmit={this.onFormSubmit}>
                     <input type="text" name="option"/>
                     <button>Add option</button>
