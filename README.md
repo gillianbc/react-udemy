@@ -77,6 +77,10 @@ But it's better to do !!this.name which will return true when name and false whe
 ## State
 ![image](https://user-images.githubusercontent.com/20191662/103410834-13267680-4b65-11eb-8981-dda1aa69b490.png)
 
+## Props and State Compared
+![image](https://user-images.githubusercontent.com/20191662/103426343-b2249000-4bb0-11eb-9e90-b4d368c52e7e.png)
+
+
 
 # Useful Docs
 Elements - https://reactjs.org/docs/dom-elements.html
