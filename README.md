@@ -74,6 +74,10 @@ For booleans we can use !! so that we can use a positive function name e.g. for 
 i.e. !this.name will return false when name and true when no name. Fine if the function is called hasNoName(). 
 But it's better to do !!this.name which will return true when name and false when no name 
 
+## State
+![image](https://user-images.githubusercontent.com/20191662/103410834-13267680-4b65-11eb-8981-dda1aa69b490.png)
+
+
 # Useful Docs
 Elements - https://reactjs.org/docs/dom-elements.html
 Events - https://reactjs.org/docs/events.html
