@@ -1,13 +1,45 @@
 class IndecisionApp extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            options: ['apple', 'pear', 'cherry']
+        }
+        this.handleDeleteOptions = this.handleDeleteOptions.bind(this)
+        this.handleSelectedOption = this.handleSelectedOption.bind(this)
+    }
+    handleDeleteOptions() {
+        console.log('Setting options to empty')
+        this.setState(() => {
+            return {
+                options: []
+            }
+        })
+    }
+    handleSelectedOption() {
+        console.log('Selecting an option randomly')
+        const randomNum = Math.floor(Math.random() * this.state.options.length)
+        console.log('Random Num:', randomNum)
+        alert(this.state.options[randomNum])
+    }
     render() {
+        /* Note that this main component renders the Header, Action, Options and AddOptions components, but they cannot
+        update the state of the parent IndecisionApp state directly. The parent can pass state down as props, but this.props
+        cannot be passed back to the parent.  We have to pass functions to the subordinate components which they can then
+        call to update the state of the parent i.e. the main component IndecisionApp
+        * */
         const title = 'The Indecision Application'
         const subtitle = 'Put your life in the hands of a computer.'
-        const options = ['apple', 'pear', 'banana']
         return (
             <div>
                 <Header title={title} subtitle={subtitle}/>
-                <Action/>
-                <Options options={options}/>
+                <Action
+                    hasOptions={this.state.options.length > 0}
+                    handleSelectedOption={this.handleSelectedOption}
+                />
+                <Options
+                    options={this.state.options}
+                    handleRemove={this.handleDeleteOptions}
+                />
                 <AddOptions/>
             </div>
         )
@@ -29,51 +61,20 @@ class Header extends React.Component{
     }
 }
 class Action extends React.Component {
-    handlePick() {
-        console.log('handlePick was called')
-    }
     render() {
         return (
             <div>
-                <button onClick={this.handlePick}>What should I do?</button>
+                <button onClick={this.props.handleSelectedOption} disabled={!this.props.hasOptions}>What should I do?</button>
             </div>
         )
     }
 }
-function displayOptionsArray() {
-    return (option) => {
-        return <li key={option}>Option: {option}</li>
-    };
-}
-
 class Options extends React.Component {
-    /*
-    The bog standard constructor is:
-    constructor(props) {
-        super(props);
-    }
-     */
-    constructor(props) {
-        super(props);
-        // Ensure that handleRemove is always bound to the Options instance even when called from other functions
-        // and thus has access to the props
-        this.handleRemove = this.handleRemove.bind(this)
-    }
-    handleRemove() {
-        console.log('handleRemove was called')
-        console.log(this.props.options)  // will not work unless bound.  We have constructed the Options instance with a property of
-        // options.  The property is accessible in render as it is simply a property of the Options instance on which
-        // render() has been called.  However, it's the onClick event of render() that is calling handleRemove() and 'this'
-        // is not bound.  See the binding-this.js for more examples.
-        // We could just bind it to the instance of Options like so and it would work:
-        // <button onClick={this.handleRemove.bind(this)}>Remove all options?</button>
-        // but better to use the constructor
-    }
     render() {
         return (
             <div>
                 <p>The options component</p>
-                <button onClick={this.handleRemove}>Remove all options?</button>
+                <button onClick={this.props.handleRemove}>Remove all options?</button>
                 {
                     /*To do a simple paragraph, we'd do this
                     this.props.options.map((option) =>  <p key={option}>{option}</p>)

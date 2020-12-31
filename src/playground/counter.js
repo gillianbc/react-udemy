@@ -1,4 +1,10 @@
-
+/*
+* Single component application
+*
+* Constructor sets the application state - just a single property - count
+* Methods to change the count
+* render() to display the count
+* */
 
 class Counter extends React.Component {
     constructor(props) {
