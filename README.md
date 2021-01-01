@@ -87,6 +87,26 @@ To convert an existing subclass of React.Component to a stateless functional com
 - return the same stuff as the render() method
 - you cannot use `this.props` as we're not dealing with an instance of a class. Just use a normal argument: `props`. Look out for any `this.props.blahblah` and change to `props.blahblah`
 
+# Developer Tools
+## React Developer Tools
+Install the Chrome extension - React Developer Tools
+Click the purple *Components* icon to see state, props etc
+### $r - global variable of current element
+Select an element
+Enter `$r` in the console to view the details of the selected element
+
+## Rendering
+Click the gear icon in the chrome dev tools
+More tools - Rendering
+Paint Flashing
+
+This will flash the dom elements that have been re-rendered
+
+## Elements
+Useful for seeing the actual HTML markup that React has created
+
+
+
 # Useful Docs
 Elements - https://reactjs.org/docs/dom-elements.html
 Events - https://reactjs.org/docs/events.html
