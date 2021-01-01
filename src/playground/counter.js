@@ -17,6 +17,23 @@ class Counter extends React.Component {
             count: props.count
         }
     }
+    componentDidMount() {
+        console.log('lifecycle method - componentDidMount')
+        const loadedCount = parseInt(localStorage.getItem('count'))
+        if (!isNaN(loadedCount)) {
+            // Remember, we have to enclose the object in () when using a single line RHS for an arrow function
+            this.setState(() => ({ count: loadedCount }))
+            console.log('count was loaded ', loadedCount)
+            console.log('state count: ', this.state.count)
+        }
+    }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.count !== this.state.count) {
+            localStorage.setItem('count', this.state.count)
+            console.log('lifecycle method - componentDidUpdate')
+        }
+
+    }
     handlePlusOne() {
         // We must use the setter for React to detect the state change and re-render the component
         this.setState((prevState) => {
@@ -55,7 +72,7 @@ Counter.defaultProps = {
     count: 0
 }
 
-ReactDOM.render(<Counter count={-1}/>, document.getElementById('app'));
+ReactDOM.render(<Counter count={0}/>, document.getElementById('app'));
 
 /*
 let count = 10;
