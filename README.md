@@ -89,23 +89,22 @@ To convert an existing subclass of React.Component to a stateless functional com
 
 # Developer Tools
 ## React Developer Tools
-Install the Chrome extension - React Developer Tools
+Install the Chrome extension - React Developer Tools.
+
 Click the purple *Components* icon to see state, props etc
 ### $r - global variable of current element
-Select an element
-Enter `$r` in the console to view the details of the selected element
+- Select an element
+- Enter `$r` in the console to view the details of the selected element
 
 ## Rendering
-Click the gear icon in the chrome dev tools
-More tools - Rendering
-Paint Flashing
+- Click the gear icon in the chrome dev tools
+- More tools - Rendering
+- Paint Flashing
 
 This will flash the dom elements that have been re-rendered
 
 ## Elements
 Useful for seeing the actual HTML markup that React has created
-
-
 
 # Useful Docs
 Elements - https://reactjs.org/docs/dom-elements.html
