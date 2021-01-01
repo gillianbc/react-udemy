@@ -63,17 +63,6 @@ A React component is simply a class that inherits from React.Component. Each Rea
 
 `ReactDOM.render(<IndecisionApp/>, document.getElementById('app'))`
 
-# Notes
-## If / Then  (no Else)
-I use the ternary where I need two options, x ? a : b  which reads as "if some condition then a else b"
-but I didn't know about the logical and operator && for when I have one option or nothing
-x && a which reads as "if some condition then a" e.g. `age > 0 && (adult = true)`
-
-## Double Logical Not !!
-For booleans we can use !! so that we can use a positive function name e.g. for a function called hasName() `return !!this.name`
-i.e. !this.name will return false when name and true when no name. Fine if the function is called hasNoName(). 
-But it's better to do !!this.name which will return true when name and false when no name 
-
 ## State
 ![image](https://user-images.githubusercontent.com/20191662/103410834-13267680-4b65-11eb-8981-dda1aa69b490.png)
 
@@ -113,4 +102,27 @@ Events - https://reactjs.org/docs/events.html
 #Primer
 ![Untitled](https://user-images.githubusercontent.com/20191662/102872117-33548800-4437-11eb-9caa-62b0367142d6.png)
 
+# Notes
+## If / Then  (no Else)
+I use the ternary where I need two options, x ? a : b  which reads as "if some condition then a else b"
+but I didn't know about the logical and operator && for when I have one option or nothing
+x && a which reads as "if some condition then a" e.g. `age > 0 && (adult = true)`
 
+## Double Logical Not !!
+For booleans we can use !! so that we can use a positive function name e.g. for a function called hasName() `return !!this.name`
+i.e. !this.name will return false when name and true when no name. Fine if the function is called hasNoName(). 
+But it's better to do !!this.name which will return true when name and false when no name 
+
+## Object Returned from Arrow Func
+When an arrow function has a single line in its body, the curly brackets can be omitted e.g.
+```$xslt
+const myfunc = () => {
+    return 12
+}
+const myfunc = () => 12
+```
+However, if we want to return an object such as `{'apple', 1}`, we need to use curly braces so that would confuse JS.
+Therefore, we must surround the body with an extra set of round brackets i.e.
+```$xslt
+const myfunc = () => ({'apple', 1})
+```

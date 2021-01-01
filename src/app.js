@@ -10,11 +10,7 @@ class IndecisionApp extends React.Component {
     }
     handleDeleteOptions() {
         console.log('Setting options to empty')
-        this.setState(() => {
-            return {
-                options: []
-            }
-        })
+        this.setState(() => ({ options: [] }))
     }
     handleSelectedOption() {
         console.log('Selecting an option randomly')
@@ -35,11 +31,7 @@ class IndecisionApp extends React.Component {
             console.log('Duplicate option')
             return 'Duplicate option'
         }
-        this.setState((prevState) => {
-            return {
-                options: prevState.options.concat(option)
-            }
-        })
+        this.setState((prevState) => ({ options: prevState.options.concat(option) }))
     }
     render() {
         /* Note that this main component renders the Header, Action, Options and AddOptions components, but they cannot
@@ -135,9 +127,7 @@ class AddOptions extends React.Component {
         console.log('Forms submitted')
         e.preventDefault();  // stop the whole form from refreshing
         const newOption = e.target.elements.option.value.trim();
-        this.setState(() => {
-            return { error: this.props.handleAddOption(newOption) }
-        })
+        this.setState(() => ({ error: this.props.handleAddOption(newOption) }))
     }
 
     render() {
