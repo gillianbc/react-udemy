@@ -76,6 +76,9 @@ To convert an existing subclass of React.Component to a stateless functional com
 - return the same stuff as the render() method
 - you cannot use `this.props` as we're not dealing with an instance of a class. Just use a normal argument: `props`. Look out for any `this.props.blahblah` and change to `props.blahblah`
 
+## Webpack
+![image](https://user-images.githubusercontent.com/20191662/103445945-e0b66f80-4c71-11eb-958f-6ab07761af31.png)
+
 # Developer Tools
 ## React Developer Tools
 Install the Chrome extension - React Developer Tools.
