@@ -7,14 +7,18 @@ class IndecisionApp extends React.Component {
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this)
         this.handleSelectedOption = this.handleSelectedOption.bind(this)
         this.handleAddOption = this.handleAddOption.bind(this)
+        this.handleDeleteOption = this.handleDeleteOption.bind(this)
     }
     handleDeleteOptions() {
         console.log('Setting options to empty')
-        this.setState(() => {
-            return {
-                options: []
-            }
-        })
+        this.setState(() => ({ options: [] }))
+    }
+    handleDeleteOption(optionToRemove) {
+        console.log('handleDeleteOption: ', optionToRemove)
+        this.setState((prevState) => ({
+            options: prevState.options.filter((option) => option !== optionToRemove)
+        }))
+
     }
     handleSelectedOption() {
         console.log('Selecting an option randomly')
@@ -35,11 +39,7 @@ class IndecisionApp extends React.Component {
             console.log('Duplicate option')
             return 'Duplicate option'
         }
-        this.setState((prevState) => {
-            return {
-                options: prevState.options.concat(option)
-            }
-        })
+        this.setState((prevState) => ({ options: prevState.options.concat(option) }))
     }
     render() {
         /* Note that this main component renders the Header, Action, Options and AddOptions components, but they cannot
@@ -59,6 +59,7 @@ class IndecisionApp extends React.Component {
                 <Options
                     options={this.state.options}
                     handleRemove={this.handleDeleteOptions}
+                    handleDeleteOption={this.handleDeleteOption}
                 />
                 <AddOptions
                     handleAddOption={this.handleAddOption}
@@ -106,7 +107,12 @@ const Options = (props) => {
                 this.props.options.map((option) =>  <p key={option}>{option}</p>)
                 */
                 /*We still need to provide a key as it's an array*/
-                props.options.map((option) =>  <Option key={option} optionText={option}/>)
+                props.options.map((option) =>
+                    <Option
+                        key={option}
+                        optionText={option}
+                        handleDeleteOption={props.handleDeleteOption}
+                    />)
             }
             <button onClick={props.handleRemove}>Remove all options?</button>
         </div>
@@ -118,6 +124,11 @@ const Option = (props) => {
     return (
         <div>
             <h3>{props.optionText}</h3>
+            <button onClick={(e) => {
+                    props.handleDeleteOption(props.optionText)
+                }}>
+                Remove
+            </button>
         </div>
     )
 }
@@ -135,9 +146,7 @@ class AddOptions extends React.Component {
         console.log('Forms submitted')
         e.preventDefault();  // stop the whole form from refreshing
         const newOption = e.target.elements.option.value.trim();
-        this.setState(() => {
-            return { error: this.props.handleAddOption(newOption) }
-        })
+        this.setState(() => ({ error: this.props.handleAddOption(newOption) }))
     }
 
     render() {
