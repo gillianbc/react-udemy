@@ -2,7 +2,7 @@ class IndecisionApp extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            options: ['Cheese']
+            options: props.options
         }
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this)
         this.handleSelectedOption = this.handleSelectedOption.bind(this)
@@ -68,15 +68,23 @@ class IndecisionApp extends React.Component {
     }
 }
 
+IndecisionApp.defaultProps = {
+    options: ['Christmas', 'Easter', 'Lent']
+}
+
 // Stateless functional component
 const Header = (props) => {
     return (
         /*Header has been called with 2 args, these become props*/
         <div>
             <h1>{props.title}</h1>
-            <h2>{props.subtitle}</h2>
+            {props.subtitle && <h2>{props.subtitle}</h2>}
         </div>
     )
+}
+
+Header.defaultProps = {
+    title: 'My Application Title'
 }
 
 // Stateless functional component
@@ -148,4 +156,4 @@ class AddOptions extends React.Component {
 
 // What we want to render and where do we want it displayed
 // React identifies components as those that have an uppercase initial letter - lowercase it assumes are just html
- ReactDOM.render(<IndecisionApp/>, document.getElementById('app'))
+ ReactDOM.render(<IndecisionApp options={['wine', 'beer', 'irnbru']}/>, document.getElementById('app'))
