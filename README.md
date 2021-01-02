@@ -3,7 +3,6 @@
 Learning react on udemy.  My second course from Andrew Mead.
 https://www.udemy.com/course/react-2nd-edition.  Quite a long course - 39 hours so I estimate it will take me several months to complete it.
 
-
 # Installation
 npm install
 
@@ -45,6 +44,8 @@ A React component is simply a class that inherits from React.Component. Each Rea
 
 (From Section 6 onwards, we use webpack so we only need one script - bundle.js)
 
+We have babel-cli installed so that we can use babel from scripts or the shell.  
+
 ## State
 ![image](https://user-images.githubusercontent.com/20191662/103410834-13267680-4b65-11eb-8981-dda1aa69b490.png)
 
@@ -68,6 +69,16 @@ Since the app may be installed on windows, linux etc, we cannot just use slashes
 
 To watch for changes to source code, use --watch in the package.json script:
 `"build": "webpack --watch",`
+
+For webpack, we need babel-core so that tools such as webpack can use babel.  
+Webpack also needs babel-loader so that it can behave appropriately based on file types.
+In the package.json build scripts, we used `--presets=env,react`.  For webpack to use these same presets, we need to define this in `.babelrc` i.e.
+```$xslt
+{
+    "presets": ["env", "react"]
+}
+```
+Note that a bundle.js file created from a dev build will be huge - it's much smaller when we do a production build (later)
 
 # Developer Tools
 ## React Developer Tools
