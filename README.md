@@ -61,6 +61,14 @@ To convert an existing subclass of React.Component to a stateless functional com
 ## Webpack
 ![image](https://user-images.githubusercontent.com/20191662/103445945-e0b66f80-4c71-11eb-958f-6ab07761af31.png)
 
+In webpack.config.js, for the output file, it has to be an absolute path so that will vary depending on where the project has been installed locally.
+So, we use __dirname rather than ./ to give us the current directory.  
+
+Since the app may be installed on windows, linux etc, we cannot just use slashes - so we use the built in node module `path`
+
+To watch for changes to source code, use --watch in the package.json script:
+`"build": "webpack --watch",`
+
 # Developer Tools
 ## React Developer Tools
 Install the Chrome extension - React Developer Tools.
@@ -82,7 +90,10 @@ Useful for seeing the actual HTML markup that React has created
 
 # Useful Docs
 Elements - https://reactjs.org/docs/dom-elements.html
+
 Events - https://reactjs.org/docs/events.html
+
+Webpack - https://webpack.js.org/
 
 #Primer
 ![Untitled](https://user-images.githubusercontent.com/20191662/102872117-33548800-4437-11eb-9caa-62b0367142d6.png)
