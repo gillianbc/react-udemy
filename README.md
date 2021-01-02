@@ -5,27 +5,9 @@ https://www.udemy.com/course/react-2nd-edition.  Quite a long course - 39 hours 
 
 
 # Installation
-Assumes you have yarn installed globally
+npm install
 
-`npm install -g yarn`
-
-'yarn --version'
-
-On windows, you will need to reboot.
-
-Install live-server:
-
-`yarn global add live-server`
-
-Install babel cli:
-
-`yarn global add babel-cli`
-
-Install babel react standard presets:
-
-`yarn add babel-preset-react@6.24.1 babel-preset-env@1.5.2`
-
-NB I prefer npm as that means I can easily run via intellij so I switched the above yarn to npm e.g. npm install -g
+NB I prefer npm to yarn as that means I can easily run via intellij 
 
 # Running the App
 You need to run two processes so open two terminal windows if running from the shell:  
@@ -36,9 +18,7 @@ The app will be launched on http://127.0.0.1:8080/ in your default browser.
 For some of the exrecises, just view the console logs in the Chrome dev tools F12
 
 ## Update
-I've put the app scripts in package.json, so just start the live server in a terminal:
-`live-server public`
-and you can start the app scripts in the usual way
+I've put the app scripts in package.json
 ## Babel
 Transpiled with Babel into public/scripts/app.js using the env and react presets (i.e. collections of library files).
 --watch will re-transpile whenever the src file changes.
@@ -46,7 +26,7 @@ Transpiled with Babel into public/scripts/app.js using the env and react presets
 `babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch`
 
 ## Live Server 
-Globally installed.  Will serve up whatever is in public and reload it if it changes i.e. public/app.js
+Will serve up whatever is in public and reload it if it changes i.e. public/app.js
 
 `live-server public`
 
@@ -63,6 +43,8 @@ A React component is simply a class that inherits from React.Component. Each Rea
 
 `ReactDOM.render(<IndecisionApp/>, document.getElementById('app'))`
 
+(From Section 6 onwards, we use webpack so we only need one script - bundle.js)
+
 ## State
 ![image](https://user-images.githubusercontent.com/20191662/103410834-13267680-4b65-11eb-8981-dda1aa69b490.png)
 
@@ -78,6 +60,14 @@ To convert an existing subclass of React.Component to a stateless functional com
 
 ## Webpack
 ![image](https://user-images.githubusercontent.com/20191662/103445945-e0b66f80-4c71-11eb-958f-6ab07761af31.png)
+
+In webpack.config.js, for the output file, it has to be an absolute path so that will vary depending on where the project has been installed locally.
+So, we use __dirname rather than ./ to give us the current directory.  
+
+Since the app may be installed on windows, linux etc, we cannot just use slashes - so we use the built in node module `path`
+
+To watch for changes to source code, use --watch in the package.json script:
+`"build": "webpack --watch",`
 
 # Developer Tools
 ## React Developer Tools
@@ -100,7 +90,10 @@ Useful for seeing the actual HTML markup that React has created
 
 # Useful Docs
 Elements - https://reactjs.org/docs/dom-elements.html
+
 Events - https://reactjs.org/docs/events.html
+
+Webpack - https://webpack.js.org/
 
 #Primer
 ![Untitled](https://user-images.githubusercontent.com/20191662/102872117-33548800-4437-11eb-9caa-62b0367142d6.png)
