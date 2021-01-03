@@ -1,15 +1,11 @@
 import React from "react";
 
 export default class AddOption extends React.Component {
-    constructor(props) {
-        super(props)
-        this.onFormSubmit = this.onFormSubmit.bind(this)
-        this.state = {
-            error: undefined
-        }
+    state = {
+        error: undefined
     }
 
-    onFormSubmit(e) {
+    handleAddOption = (e) => {
         console.log('Forms submitted')
         e.preventDefault();  // stop the whole form from refreshing
         const newOption = e.target.elements.option.value.trim();
@@ -24,7 +20,7 @@ export default class AddOption extends React.Component {
         return (
             <div>
                 <div>{this.state.error && <p>{this.state.error}</p>}</div>
-                <form onSubmit={this.onFormSubmit}>
+                <form onSubmit={this.handleAddOption}>
                     <input type="text" name="option"/>
                     <button>Add option</button>
                 </form>

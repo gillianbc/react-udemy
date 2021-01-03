@@ -19,7 +19,10 @@ For some of the exrecises, just view the console logs in the Chrome dev tools F1
 ## Update
 I've put the app scripts in package.json
 ## Babel
-Transpiled with Babel into public/scripts/app.js using the env and react presets (i.e. collections of library files).
+Transpiled with Babel into public/scripts/app.js using the env and react presets (i.e. sets of plugins).
+- The env preset takes care of producing JS suitable for a variety of browsers.
+- The react preset takes care of transpiling JSX into React e.g. createElement.
+
 --watch will re-transpile whenever the src file changes.
 
 `babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch`
@@ -30,6 +33,8 @@ Will serve up whatever is in public and reload it if it changes i.e. public/app.
 `live-server public`
 
 # How Does It Work?
+When we run `live-server public`, it finds `index.html` in the public folder.  It then launches the js scripts define in index.html e.g. app.js or bundle.js.
+
 We have a very simple `index.html` that has a `<div>` in the body with an id of `app`.  This is where our react application will be rendered.
 
 index.html uses two scripts for react:
@@ -82,6 +87,14 @@ Note that a bundle.js file created from a dev build will be huge - it's much sma
 
 `devtool` options have changed since the course was recorded - see https://webpack.js.org/configuration/devtool/#devtool.
 I found `eval-cheap-module-source-map` worked just fine
+
+## .babelrc - plugin - transform-class-properties
+This plugin allows us to: 
+- define instance properties in a class based component without using a constructor
+- call arrow function instance methods without having to manually bind `this` in the constructor 
+See examples and explanations in `classSyntax.js` and also the commits in Lec 58 branch.
+
+(I think this plugin may have a new name in latest babel)
 
 ### dev-server
 When using webpack's **dev-server** rather than live-server, we no longer need to explicitly `--watch` for src changes in the package.json script.
@@ -143,3 +156,14 @@ Therefore, we must surround the body with an extra set of round brackets i.e.
 ```$xslt
 const myfunc = () => ({'apple', 1})
 ```
+
+# Progress
+Started:  29-11-2020
+Lec 10/200 completed by => 30/11/2020
+Lec 20/200 completed by => 19/12/2020
+Lec 30/200 completed by => 30/12/2020
+Lec 40/200 completed by => 31/12/2020
+Lec 50/200 completed by => 02/01/2021
+Lec 60/200 completed by =>
+Lec 70/200 completed by =>
+Lec 80/200 completed by =>

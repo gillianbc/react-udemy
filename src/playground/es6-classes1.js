@@ -54,8 +54,8 @@ const me = new Student('Gillian', 55, 'Maths')
 console.log(me)
 console.log('Gillian has major', me.hasMajor())
 console.log('Plain student has major', new Student().hasMajor())
-console.log(me.getDescription()) //Gillian is 55 year(s) old majoring in Maths.
-console.log(new Student().getDescription()) //Anon is unknown year(s) old
+console.log(me.getDescription()) //Gillian is 55 year(s) oldSyntax majoring in Maths.
+console.log(new Student().getDescription()) //Anon is unknown year(s) oldSyntax
 
 const julie = new Traveller('Julie', 23, 'Derby');
 const  derek = new Traveller('Derek', 68);
