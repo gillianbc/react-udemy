@@ -5,15 +5,8 @@ import Options from "./Options";
 import AddOption from "./AddOption";
 
 export default class IndecisionApp extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            options: props.options
-        }
-        this.handleDeleteOptions = this.handleDeleteOptions.bind(this)
-        this.handleSelectedOption = this.handleSelectedOption.bind(this)
-        this.handleAddOption = this.handleAddOption.bind(this)
-        this.handleDeleteOption = this.handleDeleteOption.bind(this)
+    state = {
+        options: []
     }
 
     componentDidMount() {
@@ -42,19 +35,19 @@ export default class IndecisionApp extends React.Component {
         console.log('Component will unmount')
     }
 
-    handleDeleteOptions() {
+    handleDeleteOptions = () => {
         console.log('Setting options to empty')
         this.setState(() => ({options: []}))
     }
 
-    handleDeleteOption(optionToRemove) {
+    handleDeleteOption = (optionToRemove) => {
         console.log('handleDeleteOption: ', optionToRemove)
         this.setState((prevState) => ({
             options: prevState.options.filter((option) => option !== optionToRemove)
         }))
     }
 
-    handleSelectedOption() {
+    handleSelectedOption = () => {
         console.log('Selecting an option randomly')
         const randomNum = Math.floor(Math.random() * this.state.options.length)
         console.log('Random Num:', randomNum)
@@ -63,7 +56,7 @@ export default class IndecisionApp extends React.Component {
 
     // Do not mutate the original arrays
     // Do not add the same item twice or you'll get a key error
-    handleAddOption(option) {
+    handleAddOption = (option) => {
         console.log('Option: ', option)
         if (!option) {
             console.log('No option')

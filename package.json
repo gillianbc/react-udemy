@@ -17,12 +17,14 @@
     "build-arrowfuncs": "babel src/playground/es6-arrow-function.js --out-file=public/scripts/app.js --presets=env,react --watch",
     "build-arrowfuncs2": "babel src/playground/es6-arrow-function2.js --out-file=public/scripts/app.js --presets=env,react --watch",
     "build-binding-this": "babel src/playground/binding-this.js --out-file=public/scripts/app.js --presets=env,react --watch",
-    "build-counter": "babel src/playground/counter.js --out-file=public/scripts/app.js --presets=env,react --watch"
+    "build-counter": "babel src/playground/counter.js --out-file=public/scripts/app.js --presets=env,react --watch",
+    "build-class-syntax": "babel src/playground/classSyntax.js --out-file=public/scripts/app.js --presets=env,react --watch"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "live-server": "^1.2.1",
