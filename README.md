@@ -80,6 +80,9 @@ In the package.json build scripts, we used `--presets=env,react`.  For webpack t
 ```
 Note that a bundle.js file created from a dev build will be huge - it's much smaller when we do a production build (later)
 
+`devtool` options have changed since the course was recorded - see https://webpack.js.org/configuration/devtool/#devtool.
+I found `eval-cheap-module-source-map` worked just fine
+
 # Developer Tools
 ## React Developer Tools
 Install the Chrome extension - React Developer Tools.
