@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "live-server public",
-    "build": "webpack --watch",
+    "dev-server": "webpack-dev-server",
+    "build": "webpack",
     "build-app": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
     "build-es6-classes1": "babel src/playground/es6-classes1.js --out-file=public/scripts/app.js --presets=env,react --watch",
     "build-builditvisibility": "babel src/playground/build-it-visible.js --out-file=public/scripts/app.js --presets=env,react --watch",
@@ -28,6 +29,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "validator": "^8.0.0",
-    "webpack": "^3.1.0"
+    "webpack": "^3.1.0",
+    "webpack-dev-server": "^2.5.1"
   }
 }

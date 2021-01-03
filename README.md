@@ -83,6 +83,13 @@ Note that a bundle.js file created from a dev build will be huge - it's much sma
 `devtool` options have changed since the course was recorded - see https://webpack.js.org/configuration/devtool/#devtool.
 I found `eval-cheap-module-source-map` worked just fine
 
+### dev-server
+When using webpack's **dev-server** rather than live-server, we no longer need to explicitly `--watch` for src changes in the package.json script.
+The url is different - http://localhost:8080 (it was `http://127.0.0.1:8080/ for live-server)
+
+**dev-server** does not create a bundle.js on disk - just in memory, so that's why it's fast at processing src changes on the fly.  
+For production, we would need a bundle.js created, so we still need to keep our standard build script.
+
 # Developer Tools
 ## React Developer Tools
 Install the Chrome extension - React Developer Tools.
