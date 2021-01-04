@@ -129,6 +129,8 @@ Events - https://reactjs.org/docs/events.html
 
 Webpack - https://webpack.js.org/
 
+Cheatsheet - https://devhints.io/react
+
 #Primer
 ![Untitled](https://user-images.githubusercontent.com/20191662/102872117-33548800-4437-11eb-9caa-62b0367142d6.png)
 
@@ -164,6 +166,6 @@ Lec 20/200 completed by => 19/12/2020
 Lec 30/200 completed by => 30/12/2020
 Lec 40/200 completed by => 31/12/2020
 Lec 50/200 completed by => 02/01/2021
-Lec 60/200 completed by =>
+Lec 60/200 completed by => 04/01/2021
 Lec 70/200 completed by =>
 Lec 80/200 completed by =>
