@@ -3,10 +3,12 @@ import Header from "./Header";
 import Action from "./Action";
 import Options from "./Options";
 import AddOption from "./AddOption";
+import OptionModal from "./OptionModal";
 
 export default class IndecisionApp extends React.Component {
     state = {
-        options: []
+        options: [],
+        selectedOption: undefined
     }
 
     componentDidMount() {
@@ -35,6 +37,11 @@ export default class IndecisionApp extends React.Component {
         console.log('Component will unmount')
     }
 
+    handleDeselectOption = () => {
+        console.log('Setting selection option state to undefined')
+        this.setState(() => ({ selectedOption: undefined }))
+    }
+
     handleDeleteOptions = () => {
         console.log('Setting options to empty')
         this.setState(() => ({options: []}))
@@ -51,7 +58,10 @@ export default class IndecisionApp extends React.Component {
         console.log('Selecting an option randomly')
         const randomNum = Math.floor(Math.random() * this.state.options.length)
         console.log('Random Num:', randomNum)
-        alert(this.state.options[randomNum])
+        //Remember, for JS to understand an implicit return statement of a single line and that it is an object, we need to enclose
+        // the curly brackets in ()
+        const selectedOption = this.state.options[randomNum]
+        this.setState(() => ({ selectedOption }))
     }
 
     // Do not mutate the original arrays
@@ -92,6 +102,11 @@ export default class IndecisionApp extends React.Component {
                 <AddOption
                     handleAddOption={this.handleAddOption}
                 />
+                <OptionModal
+                    selectedOption={ this.state.selectedOption }
+                    handleDeselectOption={ this.handleDeselectOption }
+                />
+
             </div>
         )
     }
