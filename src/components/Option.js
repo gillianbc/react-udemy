@@ -1,8 +1,7 @@
 // Stateless functional component
 import React from "react";
 
-export default Option = (props) => {
-    return (
+export default Option = (props) => (
         <div>
             <h3>{props.optionText}</h3>
             <button onClick={(e) => {
@@ -12,4 +11,3 @@ export default Option = (props) => {
             </button>
         </div>
     )
-}
