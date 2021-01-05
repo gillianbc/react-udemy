@@ -158,14 +158,29 @@ Therefore, we must surround the body with an extra set of round brackets i.e.
 ```$xslt
 const myfunc = () => ({'apple', 1})
 ```
+# Styling Using SCCS
+
+We use webpack to create normal CSS from SCSS via style-loader and css-loader.  Note:  `use` in the webpack.config.js is what lets us enter an array of items.
+http://sass-lang.com
+
+(Sass and Scss are much the same - Scss has curly braces and semi-colons)
+
+
 
 # Progress
 Started:  29-11-2020
 Lec 10/200 completed by => 30/11/2020
+
 Lec 20/200 completed by => 19/12/2020
+
 Lec 30/200 completed by => 30/12/2020
+
 Lec 40/200 completed by => 31/12/2020
+
 Lec 50/200 completed by => 02/01/2021
+
 Lec 60/200 completed by => 04/01/2021
+
 Lec 70/200 completed by =>
+
 Lec 80/200 completed by =>
