@@ -165,7 +165,8 @@ http://sass-lang.com
 
 (Sass and Scss are much the same - Scss has curly braces and semi-colons)
 
-
+Our webpack config looks for files ending .scss, finds /src/styles/styles.scss and uses the configured loaders to convert it into normal css.
+It then injects a style tag and the css into our index.html.
 
 # Progress
 Started:  29-11-2020
