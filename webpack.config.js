@@ -1,6 +1,5 @@
-const path = require('path')
-// See webpack.js.org for explanations
-// e.g. https://webpack.js.org/configuration/devtool/#devtool
+const path = require('path');
+
 module.exports = {
     entry: './src/app.js',
     output: {
@@ -8,24 +7,20 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        rules: [
-            {
-                loader: 'babel-loader',
-                test: /\.js$/,
-                exclude: /node_modules/
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
-            }
-        ]
+        rules: [{
+            loader: 'babel-loader',
+            test: /\.js$/,
+            exclude: /node_modules/
+        }, {
+            test: /\.scss$/,
+            use: [
+                'style-loader',
+                'css-loader',
+                'sass-loader'
+            ]
+        }]
     },
-    devtool: "eval-cheap-module-source-map",
     devServer: {
         contentBase: path.join(__dirname, 'public')
     }
-}
+};
