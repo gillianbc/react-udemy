@@ -165,8 +165,11 @@ http://sass-lang.com
 
 (Sass and Scss are much the same - Scss has curly braces and semi-colons)
 
-Our webpack config looks for files ending .scss, finds /src/styles/styles.scss and uses the configured loaders to convert it into normal css.
+Our webpack config looks for files ending .scss or .css, it finds /src/styles/styles.scss and uses the configured loaders to convert it into normal css.
 It then injects a style tag and the css into our index.html.
+We use normalize.css to do the work of overriding various browser built in styles so that our app will look the same in IE, Chrome, Safari etc
+
+
 
 # Progress
 Started:  29-11-2020
