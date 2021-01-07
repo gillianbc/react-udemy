@@ -18,6 +18,7 @@ For some of the exrecises, just view the console logs in the Chrome dev tools F1
 
 ## Update
 I've put the app scripts in package.json
+
 ## Babel
 Transpiled with Babel into public/scripts/app.js using the env and react presets (i.e. sets of plugins).
 - The env preset takes care of producing JS suitable for a variety of browsers.
@@ -31,6 +32,12 @@ Transpiled with Babel into public/scripts/app.js using the env and react presets
 Will serve up whatever is in public and reload it if it changes i.e. public/app.js
 
 `live-server public`
+
+## Running App from Section 6 Onwards
+Run the scripts:
+- build
+- dev-server
+Go to localhost:8080
 
 # How Does It Work?
 When we run `live-server public`, it finds `index.html` in the public folder.  It then launches the js scripts define in index.html e.g. app.js or bundle.js.
