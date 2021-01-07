@@ -6,11 +6,14 @@ font-family has 3 options, but they are just fallbacks - it will pick the first 
 
 rem is used for sizing as it's better for screen readers.  1 rem = 16 pixels.  For easy calculations, we set the overall
 font-size of all html to be 62.5% since 62.5% of 16 pixels = 10 pixels.
+
+Conventionally we use alphabetical order, so background comes before font-family
 */
 html {
   font-size: 62.5%;
 }
 body {
+  background: $dark-blue;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.6rem;
+  font-size: $m-size;
 }

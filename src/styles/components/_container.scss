@@ -1,0 +1,8 @@
+/* margin of 0 auto means top and bottom 0, distribute margin left right equally i.e. centred
+The left-right padding doesn't show up until you have a very narrow screen size
+*/
+.container {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 $m-size;
+}
