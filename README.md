@@ -176,6 +176,25 @@ Our webpack config looks for files ending .scss or .css, it finds /src/styles/st
 It then injects a style tag and the css into our index.html.
 We use normalize.css to do the work of overriding various browser built in styles so that our app will look the same in IE, Chrome, Safari etc
 
+##BEM - Block Element Modifier
+block--modifier-value
+
+.block represents the higher level of an abstraction or component.
+
+.block__element represents a descendent of .block that helps form .block as a whole.
+
+.block--modifier represents a different state or version of .block.
+
+e.g.
+```
+.person {}
+.person__hand {}
+.person--female {}
+.person--female__hand {}
+.person__hand--left {}
+```
+
+https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
 
 
 # Progress

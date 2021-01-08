@@ -1,0 +1,27 @@
+//A BLOCK
+.widget {
+  background: $light-blue;
+  margin-bottom: $l-size;
+}
+// AN ELEMENT OF THE BLOCK
+.widget-message {
+  background: $off-lilac;
+  margin: 0;
+  font-weight: bold;
+  padding: $l-size;
+  text-align: center;
+  border-bottom: lighten($light-blue, 10%) solid 5px;
+}
+
+// A BLOCK
+.widget-header {
+  background: $blue;
+  color: $off-lilac;
+  padding: $m-size;
+  display: flex;
+  justify-content: space-between;
+}
+// AN ELEMENT OF THE BLOCK
+.widget-header__title {
+  margin: 0;
+}
