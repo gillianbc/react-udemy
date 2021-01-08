@@ -18,9 +18,10 @@ const Options = (props) => (
                 />)
         }
         <button
+            className="button button--link"
             onClick={props.handleRemove}
             disabled={props.options.length < 2}>
-            Remove all options?
+            Remove All
         </button>
     </div>
 )
