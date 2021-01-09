@@ -1,0 +1,21 @@
+// Initially, we want the modal to be invisible
+// When it's open, we want the opacity to be 1 (full opacity - we can also use 100%)
+// We transaition opacity gradually over 400ms
+// Question: I don't understand how it knows WHEN we want the transition to happen i.e. when it's opening
+
+//.ReactModalPortal > div means: div elements that are direct descendents of class ReactModalPortal
+.ReactModalPortal > div {
+  opacity: 0;
+}
+
+// .ReactModalPortal .ReactModal__Overlay means: .ReactModal__Overlay child classes of class .ReactModalPortal
+.ReactModalPortal .ReactModal__Overlay {
+  transition: opacity 400ms ease-in-out;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+
+

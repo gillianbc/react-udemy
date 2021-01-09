@@ -199,6 +199,7 @@ https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
 
 # Progress
 Started:  29-11-2020
+
 Lec 10/200 completed by => 30/11/2020
 
 Lec 20/200 completed by => 19/12/2020
@@ -211,6 +212,10 @@ Lec 50/200 completed by => 02/01/2021
 
 Lec 60/200 completed by => 04/01/2021
 
-Lec 70/200 completed by =>
+Lec 70/200 completed by => 09/01/2021
 
 Lec 80/200 completed by =>
+
+Lec 90/200 completed by =>
+
+Lec 100/200 completed by =>
