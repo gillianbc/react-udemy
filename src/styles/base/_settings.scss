@@ -4,7 +4,7 @@ $off-black: #20222b;
 $off-lilac: #a5afd7;
 $dark-blue: #333766;
 $blue: #3c4266;
-$light-blue: #8eafff;
+$light-blue: lighten($blue, 20%);
 $purple: #8357c5;
 
 //Spacing and sizes
