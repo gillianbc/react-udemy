@@ -2,8 +2,8 @@
 import React from "react";
 
 export default Option = (props) => (
-        <div>
-            <h3>{props.optionText}</h3>
+        <div className="option">
+            <h3 className="option__text">{props.optionNum}. {props.optionText}</h3>
             <button className="button button--link" onClick={(e) => {
                 props.handleDeleteOption(props.optionText)
             }}>

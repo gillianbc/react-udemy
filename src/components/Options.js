@@ -19,10 +19,11 @@ const Options = (props) => (
         this.props.options.map((option) =>  <p key={option}>{option}</p>)
         */
         /*We still need to provide a key as it's an array*/
-        props.options.map((option) =>
+        props.options.map((option, index) =>
           <Option
-            key={option}
+            key={index + 1}
             optionText={option}
+            optionNum={index + 1}
             handleDeleteOption={props.handleDeleteOption}
           />)
       }
