@@ -11,6 +11,9 @@
 // .ReactModalPortal .ReactModal__Overlay means: .ReactModal__Overlay child classes of class .ReactModalPortal
 .ReactModalPortal .ReactModal__Overlay {
   transition: opacity 400ms ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ReactModalPortal .ReactModal__Overlay--after-open{
@@ -21,5 +24,23 @@
   opacity: 0;
 }
 
+.modal-content {
+  background: $light-blue;
+  padding: $s-size $m-size;
+  color: $off-lilac;
+  text-align: center;
+  outline: none;
+  max-width: 30rem;
+}
 
+.modal-content__title {
+  margin: 0 0 $l-size 0;
+}
 
+// word-break: break-all  takes care of really stupid words like wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+.modal-content__body {
+  margin: 0 0 $l-size 0;
+  font-size: 2rem;
+  font-weight: 300;
+  word-break: break-all;
+}

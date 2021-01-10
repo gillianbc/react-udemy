@@ -11,11 +11,12 @@ const OptionModal = (props) => (
         onRequestClose={props.handleDeselectOption}
         appElement={document.getElementById('app')}
         closeTimeoutMS={1200}
+        className="modal-content"
     >
-        <h2> Selected Option</h2>
-        { props.selectedOption && <p>{ props.selectedOption}</p> }
+        <h2 className="modal-content__title"> Selected Option</h2>
+        { props.selectedOption && <p className="modal-content__body">{ props.selectedOption}</p> }
 
-        <button onClick={props.handleDeselectOption}>Okay</button>
+        <button className="button" onClick={props.handleDeselectOption}>Okay</button>
     </Modal>
 );
 
