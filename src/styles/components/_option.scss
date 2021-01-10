@@ -5,7 +5,10 @@
   padding: $m-size $s-size;
 }
 
+// word-break: break-all  takes care of really stupid words like wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 .option__text {
   color: lighten($off-lilac, 10%);
+  word-break: break-all;
+  padding: 0 $s-size
 }
 
