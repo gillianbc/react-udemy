@@ -25,7 +25,7 @@
 }
 
 // When screen width is 45rem or greater, display elements side-by-side
-@media (min-width: $bigscreen-breakpoint){
+@media (min-width: $bigscreen){
   .add-option {
     flex-direction: row;
   }

@@ -1,11 +1,17 @@
 .header {
   background: $off-black;
   color: white;
-  margin-bottom: $xl-size;
+  margin-bottom: $m-size;
   padding: $m-size 0;
-
-
 }
+
+// When screen width is 45rem or greater...
+@media (min-width: $bigscreen){
+  .header {
+    margin-bottom: $xl-size;
+  }
+}
+
 // BEM naming convention - block element modifier
 .header__title {
   font-size: $l-size;
