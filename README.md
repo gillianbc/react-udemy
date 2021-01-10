@@ -110,7 +110,7 @@ The url is different - http://localhost:8080 (it was `http://127.0.0.1:8080/ for
 **dev-server** does not create a bundle.js on disk - just in memory, so that's why it's fast at processing src changes on the fly.  
 For production, we would need a bundle.js created, so we still need to keep our standard build script.
 
-# Developer Tools
+# Chrome Developer Tools
 ## React Developer Tools
 Install the Chrome extension - React Developer Tools.
 
@@ -128,6 +128,12 @@ This will flash the dom elements that have been re-rendered
 
 ## Elements
 Useful for seeing the actual HTML markup that React has created
+
+## Device Toolbar
+Useful for seeing what at app would look like on different devices e.g. iPhone
+
+![image](https://user-images.githubusercontent.com/20191662/104135409-2bc63600-5388-11eb-9eca-4193089b8181.png)
+
 
 # Useful Docs
 Elements - https://reactjs.org/docs/dom-elements.html
