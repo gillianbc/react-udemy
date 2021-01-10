@@ -8,11 +8,18 @@
   font-size: $l-size;
   width: 100%;
   padding: 2.4rem;
-  margin-bottom: $xl-size;
+  margin-bottom: $m-size;
 }
 
 .big-button:disabled {
   opacity: .5;
+}
+
+// When screen width is 45rem or greater...
+@media (min-width: $bigscreen){
+  .big-button {
+    margin-bottom: $xl-size;
+  }
 }
 
 //Button

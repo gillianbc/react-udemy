@@ -8,17 +8,30 @@
 .add-option {
   display: flex;
   padding: $m-size;
+  flex-direction: column;
 }
 
 //see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow
 // margin-right leaves a little gap between the input and the button
+// top right bottom left
 .add-option__input {
   background: $dark-blue;
   border: none;
   border-bottom: .3rem solid darken($dark-blue, 10%);
   color: $off-lilac;
   flex-grow: 1;
-  margin-right: $s-size;
+  margin: 0 0 $s-size 0;
   padding: $s-size;
 }
 
+// When screen width is 45rem or greater, display elements side-by-side
+@media (min-width: $bigscreen){
+  .add-option {
+    flex-direction: row;
+  }
+
+  .add-option__input {
+    margin: 0 $s-size 0 0;
+  }
+
+}
